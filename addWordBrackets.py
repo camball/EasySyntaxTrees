@@ -1,15 +1,22 @@
+"""A simple script that when given a directory containing only `.stree` files,
+adds brackets around each word in each line in each file."""
 import os
+from sys import argv
 
-data_source_directory = 'replace_me'
+if len(argv) != 2:
+    print("usage: python3 addWordBrackets.py <path_to_directory>")
+
+data_source_directory = argv[1]
 
 for file in os.listdir(data_source_directory):
-    with open(os.path.join(data_source_directory, file), 'r') as f:
+    # for each file in the directory, store it's contents in memory,
+    # modify them, and write them back to the original file.
+    with open(os.path.join(data_source_directory, file), "r") as f:
         lines = f.readlines()
-    with open(os.path.join(data_source_directory, file), 'w') as f:
+    with open(os.path.join(data_source_directory, file), "w") as f:
         for line in lines:
             toWrite = str()
-            for token in line.strip('\n').split():
-                toWrite += f'[ {token}] '
-            toWrite.strip() # take the trailing space off the end
-            # TODO: for some reason, there is still a trailing space at the end. Don't have time to fix now lol.
+            for token in line.strip("\n").split():
+                toWrite += f"[ {token}] "
+            toWrite = toWrite.strip()  # for removing the trailing space off the end
             f.write(toWrite)
