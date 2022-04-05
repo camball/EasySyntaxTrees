@@ -4,7 +4,8 @@ import os
 from sys import argv
 
 if len(argv) != 2:
-    print("usage: python3 addWordBrackets.py <path_to_directory>")
+    print("Usage: python3 addWordBrackets.py <path_to_directory>")
+    exit(1)
 
 data_source_directory = argv[1]
 
