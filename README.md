@@ -10,7 +10,7 @@ A [Visual Studio Code](https://code.visualstudio.com) usage environment for [rsy
 2. Once installed, click Command+Shift+P, then paste `Shell Command: Install 'code' command in PATH` into the text field, then click enter.
 3. Open up a terminal on your Mac (if you don't know how, just type Command+Spacebar, then type in 'terminal' and the app will be the first result).
 4. In the terminal, type `git --version`, then click enter. If you simply get an output like `git version 2.30.0`, then continue to step 5. I assume that you will get an installer popup though, so go through the steps for that installation.
-5. Now that `git` is installed, type `git clone https://github.com/camball/EasySyntaxTrees` in the terminal, and click enter.
+5. Now that `git` is installed, type `git clone git://github.com/camball/EasySyntaxTrees.git` in the terminal, and click enter.
 6. In the terminal, type `bash rst-install.sh`, then click enter (this may take a couple minutes; just let it run).
 
 > **NOTE**: These instructions are for those lacking technical knowledge/experience working in a Unix Environment. If you know what you are doing, feel free to pick apart the installation script and manually install things. The script assumes you have a fresh install of vscode on your computer, and may do unwanted actions to your settings.json if you already have vscode installed.
