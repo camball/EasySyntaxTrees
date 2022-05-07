@@ -77,7 +77,7 @@ cd "$HOME/Library/Application Support/Code/User/"
 SETTINGS_FILE="settings.json"
 
 if [ ! -f "$SETTINGS_FILE" ]; then
-    touch $SETTINGS_FILE
+    echo $'{\n\n}' > $SETTINGS_FILE
 fi
 
 # followed guide at https://medium.com/@antonmedv/discover-how-to-use-fx-effectively-668845d2a4ea
