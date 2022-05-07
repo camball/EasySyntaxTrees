@@ -87,3 +87,5 @@ fx $SETTINGS_FILE '{...this, "editor.guides.bracketPairsHorizontal": true}' save
 fx $SETTINGS_FILE '{...this, "editor.bracketPairColorization.enabled": true}' save
 fx $SETTINGS_FILE '{...this, "editor.guides.bracketPairs": "active"}' save
 fx $SETTINGS_FILE '{...this, "[plaintext]": { "editor.language.colorizedBracketPairs": [["[", "]"]], "editor.guides.bracketPairsHorizontal": true, "editor.bracketPairColorization.enabled": true, "editor.guides.bracketPairs": "active" }}' save
+
+echo $'\n\n[Process Complete] Install successful. You may now close this window.'
