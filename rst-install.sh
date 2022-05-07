@@ -74,10 +74,16 @@ brew list fx || exit 1          # test that it actually got installed
 # I can't get fx to accept paths with spaces in them, so we'll just cd there first
 cd "$HOME/Library/Application Support/Code/User/"
 
+SETTINGS_FILE="settings.json"
+
+if [ ! -f "$SETTINGS_FILE" ]; then
+    touch $SETTINGS_FILE
+fi
+
 # followed guide at https://medium.com/@antonmedv/discover-how-to-use-fx-effectively-668845d2a4ea
-fx settings.json '{...this, "code-runner.executorMapByFileExtension": { ".stree": "bash -c \"rsyntaxtree \\\"\\$(<$fileName)\\\"\" && mv syntree.png $fileNameWithoutExt.png" }}' save
-fx settings.json '{...this, "files.associations": { "*.stree": "txt" }}' save
-fx settings.json '{...this, "editor.guides.bracketPairsHorizontal": true}' save
-fx settings.json '{...this, "editor.bracketPairColorization.enabled": true}' save
-fx settings.json '{...this, "editor.guides.bracketPairs": "active"}' save
-fx settings.json '{...this, "[plaintext]": { "editor.language.colorizedBracketPairs": [["[", "]"]], "editor.guides.bracketPairsHorizontal": true, "editor.bracketPairColorization.enabled": true, "editor.guides.bracketPairs": "active" }}' save
+fx $SETTINGS_FILE '{...this, "code-runner.executorMapByFileExtension": { ".stree": "bash -c \"rsyntaxtree \\\"\\$(<$fileName)\\\"\" && mv syntree.png $fileNameWithoutExt.png" }}' save
+fx $SETTINGS_FILE '{...this, "files.associations": { "*.stree": "txt" }}' save
+fx $SETTINGS_FILE '{...this, "editor.guides.bracketPairsHorizontal": true}' save
+fx $SETTINGS_FILE '{...this, "editor.bracketPairColorization.enabled": true}' save
+fx $SETTINGS_FILE '{...this, "editor.guides.bracketPairs": "active"}' save
+fx $SETTINGS_FILE '{...this, "[plaintext]": { "editor.language.colorizedBracketPairs": [["[", "]"]], "editor.guides.bracketPairsHorizontal": true, "editor.bracketPairColorization.enabled": true, "editor.guides.bracketPairs": "active" }}' save
