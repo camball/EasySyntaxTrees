@@ -36,15 +36,18 @@ if [ "$(command -v rsyntaxtree)" = "" ]; then
 
         if [ "$usrShell" = "zsh" ]; then
             echo "export GEM_HOME=\"$HOME/.gem\"" >> .zshrc
-            echo "export PATH=\"/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH\"" >> .zshrc
+            echo "export PATH=\"/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH\"" >> ~/.zshrc
+            source ~/.zshrc
         elif [ "$usrShell" = "bash" ]; then
             echo "export GEM_HOME=\"$HOME/.gem\"" >> .bashrc
-            echo "export PATH=\"/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH\"" >> .bashrc
+            echo "export PATH=\"/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH\"" >> ~/.bashrc
+            source ~/.bashrc
         elif [ "$usrShell" = "fish" ]; then
             echo "set -x GEM_HOME \"$HOME/.gem\"" >> .config/fish/config.fish
-            echo "set -x PATH \"/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH\"" >> .config/fish/config.fish
+            echo "set -x PATH \"/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH\"" >> ~/.config/fish/config.fish
+            source ~/.config/fish/config.fish
         else
-            echo "\"$SHELL\" not recognised... modify your shell's startup script to include the code in this script."
+            echo "\"$SHELL\" not recognised... modify your shell's startup script to add ruby to your \$PATH and set \$GEM_HOME."
         fi;
     fi;
 
